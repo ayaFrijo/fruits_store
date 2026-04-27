@@ -1,51 +1,3 @@
-
-<?php    
-
-     include_once './Panier.php';
-// action1 Authentification :
-
-if(!empty($_POST['action1']))
-{
-    
- $login=$_POST['login'];
- $pass=$_POST['pass'];
-   
-
-$r= Panier::checkuser($login, $pass) ;
-    
-
-
-
-if($r==0)
-{
-    echo "Login ou pass incorrect !!!";
-}
-else{
-    
-    session_start();
-    
-    $p=new Panier();
-    
-   $_SESSION['spanier']= $p;
-   
-   $_SESSION['sindice']=0;
-    
-    
-    
-    header("Location:store.php");
-    
-}
-
-
-
-
- }
- 
-
-
-
-
-?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
  <HEAD>
@@ -183,6 +135,53 @@ else{
     
 </section>
 
+<?php    
+
+     include_once './Panier.php';
+// action1 Authentification :
+
+if(!empty($_POST['action1']))
+{
+    
+ $login=$_POST['login'];
+ $pass=$_POST['pass'];
+   
+
+$r= Panier::checkuser($login, $pass) ;
+    
+
+
+
+if($r==0)
+{
+    echo "Login ou pass incorrect !!!";
+}
+else{
+    
+    session_start();
+    
+    $p=new Panier();
+    
+   $_SESSION['spanier']= $p;
+   
+   $_SESSION['sindice']=0;
+    
+    
+    
+    header("Location:store.php");
+    
+}
+
+
+
+
+ }
+ 
+
+
+
+
+?>
 
 
 </div>
